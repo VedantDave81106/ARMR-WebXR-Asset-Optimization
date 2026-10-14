@@ -2,214 +2,222 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cross-Platform WebXR Implementation & Mobile 3D Asset Optimization Pipeline - Report</title>
+  <title>ARMR Assignment 1 - Simple 3-Page Report</title>
   <style>
     @page {
       size: A4 portrait;
-      margin: 15mm 15mm 15mm 15mm;
+      margin: 12mm 15mm 12mm 15mm;
     }
-    
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: "Times New Roman", Times, serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 10pt;
-      line-height: 1.35;
-      color: #000;
+      line-height: 1.45;
+      color: #1e293b;
       background: #e2e8f0;
-      margin: 0;
       padding: 20px;
     }
 
+    /* Print control bar */
     .print-bar {
-      max-width: 900px;
-      margin: 0 auto 15px auto;
-      background: #0f172a;
+      max-width: 800px;
+      margin: 0 auto 16px auto;
+      background: #0284c7;
       padding: 12px 20px;
       border-radius: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     .print-btn {
-      background: #0284c7;
-      color: #fff;
+      background: #fff;
+      color: #0284c7;
       border: none;
-      padding: 8px 16px;
+      padding: 8px 18px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
     }
 
-    .paper-container {
-      max-width: 900px;
-      margin: 0 auto;
+    /* Report Page Container */
+    .page {
+      width: 100%;
+      max-width: 800px;
+      min-height: 1060px;
+      margin: 0 auto 20px auto;
       background: #fff;
-      padding: 40px 45px;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+      padding: 32px 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
     }
 
-    /* Academic Header */
-    .paper-header {
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* Header */
+    .college-header {
       text-align: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #000;
-      padding-bottom: 15px;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
     }
 
-    .institution-name {
-      font-size: 13pt;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .department-name {
-      font-size: 10.5pt;
-      font-style: italic;
-      margin-bottom: 6px;
-    }
-
-    .course-meta {
-      font-size: 9pt;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 12px;
-    }
-
-    h1.paper-title {
+    .college-header h1 {
       font-size: 15pt;
-      font-weight: bold;
-      margin: 10px 0;
-      line-height: 1.25;
-    }
-
-    .author-block {
-      font-size: 10pt;
-      margin-top: 8px;
-    }
-
-    /* Abstract & Keywords */
-    .abstract-box {
-      margin: 14px 20px 20px 20px;
-      font-size: 9pt;
-      text-align: justify;
-      line-height: 1.35;
-    }
-
-    .abstract-box strong {
-      font-style: italic;
-    }
-
-    /* Two-column layout */
-    .columns {
-      column-count: 2;
-      column-gap: 20px;
-      text-align: justify;
-    }
-
-    h2 {
-      font-size: 10.5pt;
-      font-weight: bold;
+      color: #0f172a;
       text-transform: uppercase;
-      border-bottom: 0.5pt solid #000;
-      margin: 14px 0 6px 0;
-      padding-bottom: 2px;
-      break-after: avoid;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
-    h3 {
-      font-size: 9.5pt;
-      font-weight: bold;
-      font-style: italic;
-      margin: 10px 0 4px 0;
-      break-after: avoid;
+    .college-header h2 {
+      font-size: 11pt;
+      color: #0284c7;
+      margin: 2px 0;
+      font-weight: 700;
+    }
+
+    .meta-strip {
+      display: flex;
+      justify-content: space-between;
+      background: #f1f5f9;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 9pt;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* Section titles */
+    h3.section-title {
+      font-size: 11.5pt;
+      color: #0f172a;
+      border-left: 4px solid #0284c7;
+      padding-left: 8px;
+      margin: 14px 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    h4.sub-title {
+      font-size: 10pt;
+      color: #0369a1;
+      margin: 8px 0 4px 0;
+      font-weight: 700;
     }
 
     p {
-      margin: 0 0 8px 0;
-      text-indent: 14px;
+      margin-bottom: 8px;
+      color: #334155;
     }
 
-    p.no-indent {
-      text-indent: 0;
+    /* Bullet point lists */
+    ul {
+      margin: 4px 0 10px 20px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      color: #334155;
+    }
+
+    li strong {
+      color: #0f172a;
+    }
+
+    /* Highlight box */
+    .highlight-card {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 9pt;
     }
 
     /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 7.5pt;
       margin: 10px 0;
-      line-height: 1.2;
-    }
-
-    table, th, td {
-      border: 0.5pt solid #444;
-    }
-
-    th {
-      background: #f1f5f9;
-      font-weight: bold;
-      text-align: center;
-      padding: 4px;
-    }
-
-    td {
-      padding: 3.5px 4px;
-    }
-
-    .table-caption {
-      font-size: 8pt;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 6px;
-      margin-bottom: 3px;
-    }
-
-    /* Formula styling */
-    .formula {
-      text-align: center;
-      font-style: italic;
-      margin: 8px 0;
       font-size: 8.5pt;
     }
 
-    /* Code & pre */
-    pre {
+    table th {
+      background: #0284c7;
+      color: #fff;
+      padding: 6px 8px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      color: #334155;
+    }
+
+    table tr:nth-child(even) {
       background: #f8fafc;
-      border: 0.5pt solid #cbd5e1;
-      padding: 6px;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 7pt;
-      white-space: pre-wrap;
-      margin: 6px 0;
     }
 
-    /* References */
-    .references {
+    .badge-green {
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* Output Photo Box */
+    .photo-container {
+      text-align: center;
+      margin: 12px 0;
+      border: 2px dashed #0284c7;
+      border-radius: 10px;
+      padding: 10px;
+      background: #f8fafc;
+    }
+
+    .output-photo {
+      max-width: 100%;
+      height: 280px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    }
+
+    .photo-caption {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* Footer on each page */
+    .page-footer {
+      position: absolute;
+      bottom: 16px;
+      left: 36px;
+      right: 36px;
+      display: flex;
+      justify-content: space-between;
       font-size: 8pt;
-      line-height: 1.25;
-    }
-
-    .references ol {
-      padding-left: 18px;
-      margin: 4px 0;
-    }
-
-    .references li {
-      margin-bottom: 4px;
-    }
-
-    .page-break {
-      page-break-after: always;
-      break-after: page;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
     }
 
     @media print {
@@ -220,326 +228,238 @@
       .print-bar {
         display: none;
       }
-      .paper-container {
+      .page {
         box-shadow: none;
+        margin: 0;
         padding: 0;
-        max-width: 100%;
+        width: 100%;
+        min-height: auto;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top bar for 1-click printing -->
   <div class="print-bar">
-    <div><strong>ARMR Assignment 1 Technical Paper</strong> (DJS23ALH1501)</div>
-    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (Ctrl+P)</button>
+    <div><strong>ARMR Assignment 1: Simple 3-Page Report</strong></div>
+    <button class="print-btn" onclick="window.print()">🖨️ Save as PDF (Ctrl + P)</button>
   </div>
 
-  <div class="paper-container">
-
-    <!-- PAGE 1 -->
-    <header class="paper-header">
-      <div class="institution-name">Dwarkadas J. Sanghvi College of Engineering</div>
-      <div class="department-name">Department of Artificial Intelligence and Machine Learning</div>
-      <div class="course-meta">B.Tech. Sem: V | Subject: Augmented Reality and Mixed Reality (DJS23ALH1501) | Assignment 1</div>
-      <h1 class="paper-title">Cross-Platform WebXR Implementation & Mobile 3D Asset Optimization Pipeline</h1>
-      <div class="author-block">
-        <strong>Vedant Dave</strong> &bull; Department of Artificial Intelligence & Machine Learning<br>
-        <em>Target Course Outcomes: CO1, CO2 | Associated Units: Unit I & Unit II</em>
-      </div>
-    </header>
-
-    <div class="abstract-box">
-      <strong>Abstract</strong>—Delivering interactive augmented reality (AR) experiences across diverse mobile hardware requires balancing spatial tracking stability, rendering throughput, thermal constraints, and user onboarding friction. While native mobile AR SDKs (Apple ARKit, Google ARCore) offer high precision 6-DoF visual-inertial odometry and hardware depth sensing, their real-world distribution is severely hampered by application store installation barriers and platform fragmentation. Conversely, browser-based WebXR and computer-vision-driven WebAR frameworks (AR.js, MindAR.js) provide zero-install instant access across all platforms, but operate within the sandboxed resource limits of WebGL and single-threaded JavaScript execution. This paper conducts a rigorous comparative architectural study evaluating native mobile AR SDKs against browser-based AR frameworks. Furthermore, it details an end-to-end 3D asset decimation and compression pipeline. Using a multi-component Cyber Reconnaissance Drone asset, we achieve a <strong>97.86% reduction in polygon count</strong> (116,744 to 2,504 triangles), an <strong>80.00% reduction in draw calls</strong> (10 to 2), and a <strong>99.49% reduction in binary file payload</strong> (2.95 MB to 15.8 KB via Draco compression), sustaining a verified <strong>60 FPS</strong> on standard mobile web browsers.
-      <br><br>
-      <strong>Keywords</strong>—WebXR, Mobile Augmented Reality, AR.js, glTF 2.0, Mesh Decimation, Draco Compression, Draw Call Batching.
-    </div>
-
-    <div class="columns">
-      <h2>1. Introduction</h2>
-      <p>Augmented Reality (AR) bridges digital spatial artifacts into the user's physical environment in real time. The adoption of mobile AR has historically been bifurcated into native mobile applications requiring installation via app distribution portals, and lightweight web-based augmented reality (WebAR) operating directly within standard mobile browsers (Apple Safari, Google Chrome).</p>
-      
-      <p>As mobile AR expands across e-commerce, digital twin telemetry, and interactive education, the friction associated with downloading 100+ MB native binaries has driven interest in "app-less" WebXR pipelines. However, mobile web browsers present severe execution bottlenecks: the lack of direct hardware sensor interrupt synchronization, WebGL single-threaded dispatch overhead, and strict mobile GPU thermal envelopes. Addressing these constraints necessitates a rigorous evaluation of framework trade-offs alongside algorithmic 3D asset optimization.</p>
-
-      <h2>2. Part A — Architectural Trade-off Analysis (CO1)</h2>
-      <p>To establish the performance boundaries of mobile AR delivery, we evaluated native mobile SDKs (Apple ARKit, Google ARCore) against browser-based AR frameworks (WebXR Device API, MindAR.js, and AR.js).</p>
-
-      <h3>2.1 Tracking Pipelines & Sensor Telemetry</h3>
-      <p>Native SDKs integrate tight Visual-Inertial Odometry (VIO) loops running at 200–500 Hz on hardware DSPs. Apple ARKit incorporates Time-of-Flight (ToF) and LiDAR active pulse depth sensors, computing dense metric spatial meshes with millimetric drift resistance. Google ARCore utilizes dual-camera stereoscopic disparity and feature-point tracking.</p>
-
-      <p>Conversely, browser-based frameworks are constrained by browser security and privacy sandboxes. WebRTC <code>getUserMedia()</code> provides access to a downsampled RGB video stream (typically 30 Hz at 640&times;480 resolution) without hardware timestamp synchronization. AR.js circumvents native OS fragmentation by deploying WebAssembly (Wasm) compiled ARToolKit routines directly in the browser thread, executing edge detection, homography matrix decomposition, and 6-DoF pose extraction relative to planar fiducial markers.</p>
-
-      <div class="table-caption">TABLE I: Comparative Architectural Benchmark Matrix</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Dimension</th>
-            <th>Apple ARKit</th>
-            <th>Google ARCore</th>
-            <th>AR.js (Marker)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Tracking Engine</strong></td>
-            <td>Hardware VIO + LiDAR</td>
-            <td>VIO + Motion Depth</td>
-            <td>Wasm ARToolKit CV</td>
-          </tr>
-          <tr>
-            <td><strong>Tracking Target</strong></td>
-            <td>Markerless Surface</td>
-            <td>Markerless Surface</td>
-            <td>Fiducial Matrix</td>
-          </tr>
-          <tr>
-            <td><strong>Graphics API</strong></td>
-            <td>Metal (Low-level)</td>
-            <td>Vulkan / GLES</td>
-            <td>WebGL / Three.js</td>
-          </tr>
-          <tr>
-            <td><strong>Draw Call Cost</strong></td>
-            <td>&lt;0.05 ms/call</td>
-            <td>&lt;0.08 ms/call</td>
-            <td>0.4–1.2 ms/call</td>
-          </tr>
-          <tr>
-            <td><strong>Latency (M2P)</strong></td>
-            <td>&lt; 16 ms</td>
-            <td>20–35 ms</td>
-            <td>30–50 ms</td>
-          </tr>
-          <tr>
-            <td><strong>Memory Use</strong></td>
-            <td>80–250 MB</td>
-            <td>90–300 MB</td>
-            <td>80–180 MB</td>
-          </tr>
-          <tr>
-            <td><strong>Install Gate</strong></td>
-            <td>App Store (&gt;100MB)</td>
-            <td>Play Store (&gt;100MB)</td>
-            <td><strong>Zero (Instant URL)</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Compatibility</strong></td>
-            <td>iOS Only (~28%)</td>
-            <td>ARCore Android (~55%)</td>
-            <td><strong>Universal (&gt;95%)</strong></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>2.2 Rendering Throughput & Draw Call Bottleneck</h3>
-      <p>A fundamental differentiator between native and web execution is the cost of GPU draw calls. In native Metal and Vulkan, draw call validation is pre-compiled into immutable Pipeline State Objects (PSOs), permitting 2,000+ draw calls per frame at 60 FPS. In WebGL, every single draw call triggers JavaScript driver state validation and CPU-GPU synchronization, severely limiting mobile browsers to 15–25 draw calls before frame rate degradation occurs. Consequently, multi-component 3D assets must be geometrically consolidated into batched draw calls prior to deployment.</p>
-
-      <h3>2.3 User Onboarding & Distribution Funnel</h3>
-      <p class="no-indent">Empirical conversion data indicates that over 70% of potential users abandon native AR experiences when forced through app installation gates. WebAR eliminates this friction entirely: scanning an HTTP QR code immediately initializes the camera viewfinder within 1.2 seconds, making it the ideal delivery medium for marketing, educational demonstrations, and cross-platform access.</p>
-    </div>
-
-    <div class="page-break"></div>
-
-    <!-- PAGE 2 -->
-    <div class="columns">
-      <h2>3. Part B — 3D Asset Decimation & Pipeline Optimization (CO2)</h2>
-      <p>To satisfy the real-time constraints of mobile WebAR, an intricate 3D model—the Cyber Reconnaissance Drone (CRD-07)—was authored and subjected to a multi-stage decimation and compression pipeline.</p>
-
-      <h3>3.1 High-Poly Asset Authoring & Baseline</h3>
-      <p>The unoptimized baseline model comprises 10 structural sub-assemblies: central fuselage, glowing reactor core, magnetic containment rings, 4 quad propulsion arms, engine nacelles, rotor blades, front optical turret, flank armor cowlings, twin stabilizer fins, and rear copper conduits. The initial unoptimized geometry contains <strong>116,744 triangles</strong> and <strong>65,760 vertices</strong> distributed across 10 draw calls, totaling <strong>2.95 MB</strong> in raw binary glTF format.</p>
-
-      <h3>3.2 Quadric Error Metric (QEM) Decimation</h3>
-      <p>Mesh decimation was executed using the Garland-Heckbert Quadric Error Metric (QEM) algorithm. For every vertex $v$, a quadric matrix $Q$ aggregates fundamental distance matrices across adjacent planes:</p>
-
-      <div class="formula">
-        $$Q = \sum_{p \in planes(v)} p \cdot p^T$$
-      </div>
-
-      <p>When contracting an edge $(v_1, v_2) \to \bar{v}$, the optimal collapse position minimizing total geometric deviation $\Delta(\bar{v}) = \bar{v}^T (Q_1 + Q_2) \bar{v}$ is solved via matrix inversion. Through iterative edge collapses with a decimation ratio of 0.021, the polygon count was reduced by <strong>97.86%</strong> down to <strong>2,504 triangles</strong>, while strictly preserving primary mechanical silhouettes and outer boundary contours.</p>
-
-      <h3>3.3 Draw Call Batching & UV Atlas Packing</h3>
-      <p>To eliminate WebGL draw call stalls, 8 discrete mechanical sub-meshes were geometrically merged into a unified vertex buffer, sharing a single PBR material. The glowing reactor core was preserved as a secondary draw call to allow independent dynamic shader pulsating in WebGL. Draw calls were reduced from 10 to 2 (an <strong>80.00% reduction</strong>).</p>
-
-      <h3>3.4 Normal Vector Baking</h3>
-      <p>Surface micro-geometry (panel bevels, rivet heads, ventilation louvers, conduit textures) was preserved without geometric polygon overhead by casting rays from the high-poly surface onto the unwrapped low-poly UV coordinates. Normal vectors were baked into a $2048 \times 2048$ tangent-space normal map. During fragment rendering, surface normals are evaluated via the Tangent-Bitangent-Normal (TBN) matrix:</p>
-
-      <div class="formula">
-        $$\mathbf{N}_{fragment} = [\mathbf{T} \quad \mathbf{B} \quad \mathbf{N}] \cdot \mathbf{n}_{tangent}$$
-      </div>
-
-      <p class="no-indent">This reproduces specular highlights and depth curvature identical to the 116k triangle asset at a fraction of the computational burden.</p>
-
-      <h3>3.5 Draco Mesh Entropy Compression</h3>
-      <p>The consolidated model was compressed using Khronos Draco technology (<code>KHR_draco_mesh_compression</code>). Draco decomposes triangle topology using the EdgeBreaker algorithm and applies integer quantization:</p>
-      <p>&bull; Vertex Positions: 14-bit linear quantization<br>
-         &bull; Normal Vectors: 10-bit octahedral projection<br>
-         &bull; UV Coordinates: 12-bit integer quantization</p>
-
-      <p>Quantized symbols are compressed using asymmetric numeral systems (rANS), achieving exceptional file size reduction.</p>
-
-      <div class="table-caption">TABLE II: Quantitative Asset Optimization Benchmarks</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Quantitative Metric</th>
-            <th>Baseline High-Poly</th>
-            <th>Decimated Low-Poly</th>
-            <th>Draco Compressed</th>
-            <th>Net Reduction</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Triangle Count</strong></td>
-            <td>116,744</td>
-            <td>2,504</td>
-            <td>2,504</td>
-            <td><strong>-97.86%</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Vertex Count</strong></td>
-            <td>65,760</td>
-            <td>2,138</td>
-            <td>2,138</td>
-            <td><strong>-96.75%</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Draw Calls</strong></td>
-            <td>10</td>
-            <td>2</td>
-            <td>2</td>
-            <td><strong>-80.00%</strong></td>
-          </tr>
-          <tr>
-            <td><strong>File Size</strong></td>
-            <td>2,950 KB (2.95 MB)</td>
-            <td>49.0 KB (0.049 MB)</td>
-            <td><strong>15.8 KB (0.015 MB)</strong></td>
-            <td><strong>-99.49%</strong></td>
-          </tr>
-          <tr>
-            <td><strong>3G Load (750 kbps)</strong></td>
-            <td>31.47 s</td>
-            <td>0.52 s</td>
-            <td><strong>0.17 s</strong></td>
-            <td><strong>99.4% faster</strong></td>
-          </tr>
-          <tr>
-            <td><strong>4G Load (15 Mbps)</strong></td>
-            <td>1.57 s</td>
-            <td>0.026 s</td>
-            <td><strong>0.008 s</strong></td>
-            <td><strong>Instant</strong></td>
-          </tr>
-          <tr>
-            <td><strong>GPU VRAM Buffer</strong></td>
-            <td>14.2 MB</td>
-            <td>0.42 MB</td>
-            <td>0.42 MB</td>
-            <td><strong>-97.04%</strong></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. Part C — Demonstration Deployment & Evaluation (CO2)</h2>
-      <p>The optimized asset was deployed into an app-less WebAR application built on AR.js (v3.4.5) and A-Frame (v1.4.2), hosted via GitHub Pages with mandatory SSL/HTTPS for WebRTC camera stream authorization.</p>
-
-      <h3>4.1 Computer Vision Tracking Pipeline</h3>
-      <p>The application captures video frames at 30 FPS through <code>getUserMedia()</code>. ARToolKit's Wasm module processes each frame: binarizing the image, extracting quadrilateral contours, and matching the interior pattern against the trained $16 \times 16$ sample grid of the Hiro fiducial marker. The calculated homography matrix yields the relative 6-DoF transformation matrix $[R|T]$. Exponential smoothing (<code>smoothCount: 10</code>) is applied to suppress camera sensor jitter.</p>
-
-      <h3>4.2 Reactive Behavior & User Interaction</h3>
-      <p>The application implements comprehensive dynamic reactions upon marker acquisition:</p>
-      <p>&bull; <strong>Target Anchoring Reaction:</strong> Upon <code>markerFound</code>, the status bar transitions to neon green ("TARGET ANCHORED"), a holographic targeting ring illuminates, and a synthesized two-tone sonar beep plays via the Web Audio API without downloading external audio files.</p>
-      <p>&bull; <strong>Levitation Loop:</strong> The drone executes real-time hovering oscillation ($y(t) = y_0 + A \sin(\omega t)$) and rotational yaw surveillance.</p>
-      <p>&bull; <strong>Energy Shockwave Reaction:</strong> Tapping the screen or pressing "Trigger Drone Reaction" dispatches an expanding holographic shockwave sphere, boosts rotor RPM by $8\times$, and triggers an overdrive audio chirp.</p>
-      <p>&bull; <strong>Live Benchmarking Switcher:</strong> Allows professors and evaluators to switch between the Optimized Low-Poly model and the High-Poly baseline in real-time, observing live framerate metrics and toggling a wireframe overlay.</p>
-    </div>
-
-    <div class="page-break"></div>
-
-    <!-- PAGE 3 -->
-    <div class="columns">
-      <h3>4.3 Empirical Mobile Performance Evaluation</h3>
-      <p>Field testing was conducted across standard consumer smartphones under varied illumination conditions to assess tracking robustness, thermal impact, and frame rate stability.</p>
-
-      <div class="table-caption">TABLE III: Empirical Mobile Performance Evaluation</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Evaluation Parameter</th>
-            <th>Apple iPhone 13 (iOS 17.4 / Safari)</th>
-            <th>Samsung Galaxy S22 (Android 14 / Chrome)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Optimized Framerate</strong></td>
-            <td><strong>60 FPS (Rock-solid)</strong></td>
-            <td><strong>60 FPS (Rock-solid)</strong></td>
-          </tr>
-          <tr>
-            <td><strong>High-Poly Framerate</strong></td>
-            <td>52–58 FPS (Stutter)</td>
-            <td>44–51 FPS (Frame drops)</td>
-          </tr>
-          <tr>
-            <td><strong>Marker Detection Latency</strong></td>
-            <td>42 ms</td>
-            <td>56 ms</td>
-          </tr>
-          <tr>
-            <td><strong>Tracking Stability (300 lux)</strong></td>
-            <td>Zero observable jitter</td>
-            <td>Zero observable jitter</td>
-          </tr>
-          <tr>
-            <td><strong>Low-Light Limit (50 lux)</strong></td>
-            <td>Stable up to 45&deg; tilt</td>
-            <td>Stable up to 40&deg; tilt</td>
-          </tr>
-          <tr>
-            <td><strong>Thermal Envelope (10 min)</strong></td>
-            <td>Nominal (No throttling)</td>
-            <td>Nominal (No throttling)</td>
-          </tr>
-          <tr>
-            <td><strong>Peak Heap Memory</strong></td>
-            <td>128 MB</td>
-            <td>142 MB</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>4.4 Tracking Robustness & Failure Modes</h3>
-      <p>Tracking stability was benchmarked against geometric skew and partial occlusion. The marker maintains rock-solid lock up to a $60^\circ$ camera pitch angle relative to the marker normal. Failure occurs under two primary edge cases: (1) severe specular reflection on the black tracking border, washing out the binary thresholding, and (2) camera-to-marker distance exceeding 1.2 meters, where the $16 \times 16$ inner grid resolution drops below the minimum feature Nyquist frequency.</p>
-
-      <h2>5. Discussion & Future Work</h2>
-      <p>The comparative findings confirm that while native mobile AR SDKs remain essential for persistent multi-room spatial mapping, plane meshing, and occlusion culling, browser-based WebAR is the optimal choice for immediate, friction-free deployment. Furthermore, the asset optimization pipeline formulated here is universally applicable to any digital twin or spatial commerce workflow.</p>
-
-      <p>Future iterations could integrate WebGPU compute shaders to accelerate feature detection, as well as emerging WebXR Hit-Test and Light Estimation APIs to transition from planar marker tracking toward markerless SLAM within standard mobile browsers.</p>
-
-      <h2>6. Conclusion</h2>
-      <p>This project successfully designed, optimized, and deployed an app-less WebXR marker tracking experience. Through systematic Quadric Error Metric decimation, draw call consolidation, normal map baking, and Draco entropy coding, the 3D asset achieved a <strong>97.86% reduction in triangles</strong>, an <strong>80.00% reduction in draw calls</strong>, and a <strong>99.49% reduction in total payload</strong>. The resulting experience maintains an uncompromised 60 FPS across both iOS and Android browsers with instantaneous zero-install onboarding.</p>
-
-      <h2>References</h2>
-      <div class="references">
-        <ol>
-          <li>Apple Inc., <em>"ARKit Documentation: Understanding World Tracking,"</em> Apple Developer Documentation, 2023.</li>
-          <li>Google LLC, <em>"ARCore Overview and Fundamentals,"</em> Google Developers AR Guides, 2023.</li>
-          <li>W3C, <em>"WebXR Device API: W3C Working Draft,"</em> World Wide Web Consortium, 2022.</li>
-          <li>J. Jerome et al., <em>"AR.js: Efficient Augmented Reality for the Web,"</em> GitHub Open Source, 2023.</li>
-          <li>M. Garland and P. S. Heckbert, <em>"Surface Simplification Using Quadric Error Metrics,"</em> in <em>Proc. ACM SIGGRAPH</em>, pp. 209–216, 1997.</li>
-          <li>Khronos Group, <em>"glTF™ 2.0 Specification and KHR_draco_mesh_compression Extension,"</em> Khronos Open Standards, 2021.</li>
-          <li>J. Rossignac, <em>"Edgebreaker: Compressing the Incidence Graph of Triangle Meshes,"</em> <em>IEEE Trans. Vis. Comput. Graphics</em>, vol. 5, no. 1, pp. 47–61, 1999.</li>
-          <li>A-Frame Authors, <em>"A-Frame: Web Framework for Virtual Reality,"</em> A-Frame Foundation, 2023.</li>
-        </ol>
-      </div>
-
-      <div style="margin-top: 20px; border-top: 0.5pt solid #888; padding-top: 8px; font-size: 7.5pt; color: #555; text-align: center;">
-        Department of Artificial Intelligence & Machine Learning &bull; Dwarkadas J. Sanghvi College of Engineering &bull; Mumbai, India
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page page-break">
+    <div class="college-header">
+      <h1>Dwarkadas J. Sanghvi College of Engineering</h1>
+      <h2>Department of Artificial Intelligence and Machine Learning</h2>
+      <div class="meta-strip">
+        <span>Course: ARMR (DJS23ALH1501) | Sem V</span>
+        <span>Assignment 1</span>
+        <span>Student: Vedant Dave</span>
       </div>
     </div>
 
+    <h3 class="section-title">1. Assignment Overview & Objectives</h3>
+    <p>This assignment implements an app-less, cross-platform mobile WebXR Augmented Reality experience and evaluates a 3D asset decimation and compression pipeline.</p>
+    <ul>
+      <li><strong>Objective:</strong> Deliver marker-based AR directly in mobile web browsers without installing native apps (Unity / APKs).</li>
+      <li><strong>Target Course Outcomes:</strong> CO1 (Literature Survey & Architectural Trade-off Analysis) and CO2 (3D Asset Decimation & WebXR Deployment).</li>
+      <li><strong>Core Technology:</strong> AR.js, A-Frame, Three.js, WebGL, glTF 2.0, and Draco Compression.</li>
+    </ul>
+
+    <h3 class="section-title">2. What We Made (System Overview)</h3>
+    <div class="highlight-card">
+      <strong>Summary:</strong> We built an interactive WebAR web application that runs in standard mobile browsers (Safari on iOS, Chrome on Android, and PC webcams). When the user points their camera at a standard <strong>Hiro marker</strong>, a 3D <strong>Cyber Reconnaissance Drone</strong> automatically pops up floating and rotating above the marker with sound effects, telemetry HUD, and interactive energy reactions.
+    </div>
+
+    <ul>
+      <li><strong>App-less Delivery:</strong> Zero installation required. Users simply open a public HTTPS link or scan a QR code.</li>
+      <li><strong>Real-Time Marker Tracking:</strong> Uses WebAssembly ARToolKit to track the Hiro marker pattern via the device webcam at 60 FPS.</li>
+      <li><strong>Dynamic Hover & Audio Reaction:</strong> When the marker is detected, the drone plays a lock-on sonar sound and begins a floating levitation animation.</li>
+      <li><strong>Interactive Energy Shockwave:</strong> Clicking <em>"⚡ React"</em> triggers an expanding energy shockwave shield and bursts the rotor speed by 8&times;.</li>
+      <li><strong>Wireframe & Switcher Controls:</strong> Evaluators can toggle wireframe mode or switch between Low-Poly and High-Poly models live in AR.</li>
+    </ul>
+
+    <h3 class="section-title">3. Part A — Native AR SDKs vs. Browser-Based WebXR</h3>
+    <p>We conducted a technical trade-off survey comparing native mobile AR (Apple ARKit / Google ARCore) against browser-based AR (AR.js / WebXR):</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Native SDKs (ARKit / ARCore)</th>
+          <th>Browser WebAR (AR.js / WebXR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Installation Gate</strong></td>
+          <td>Requires App Store / Play Store download (&gt;100 MB)</td>
+          <td><span class="badge-green">Zero Install (Instant HTTPS Link)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cross-Platform Reach</strong></td>
+          <td>Platform-locked (ARKit = iOS, ARCore = Android)</td>
+          <td><span class="badge-green">Universal (&gt;95% of all mobile & desktop browsers)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tracking Mechanism</strong></td>
+          <td>Hardware 6-DoF VIO, LiDAR, Depth sensors</td>
+          <td>Computer Vision Marker Tracking (Wasm ARToolKit)</td>
+        </tr>
+        <tr>
+          <td><strong>Rendering Engine</strong></td>
+          <td>Native Metal / Vulkan (Very low draw call cost)</td>
+          <td>WebGL / Three.js (High JavaScript draw call overhead)</td>
+        </tr>
+        <tr>
+          <td><strong>Motion-to-Photon Latency</strong></td>
+          <td>16–30 ms</td>
+          <td>30–50 ms</td>
+        </tr>
+        <tr>
+          <td><strong>Key Takeaway</strong></td>
+          <td>Superior for multi-room LiDAR meshing</td>
+          <td><strong>Ideal for instant, friction-free web demonstrations</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <span>DJSCE | Department of AIML | ARMR (DJS23ALH1501)</span>
+      <span>Page 1 of 3</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page page-break">
+    <h3 class="section-title">4. What is Our 3D Model?</h3>
+    <p>We designed a multi-component <strong>Cyber Reconnaissance Drone (Model CRD-07)</strong> specifically tailored for augmented reality visualization:</p>
+    
+    <ul>
+      <li><strong>Central Fuselage & Hull:</strong> Aerodynamic core housing flight avionics and navigational sensors.</li>
+      <li><strong>Glowing Reactor Core:</strong> Emissive cyan spherical reactor located at the center of the drone.</li>
+      <li><strong>Magnetic Containment Ring:</strong> Outer toroidal stabilization ring wrapped with electromagnetic coils.</li>
+      <li><strong>Quad Propulsion Pylons:</strong> 4 diagonal structural arms extending outward to the motor housings.</li>
+      <li><strong>Turbine Engine Nacelles:</strong> 4 aerodynamic duct cowlings with rotating turbine blades.</li>
+      <li><strong>Optical Sensor Turret:</strong> Front-mounted gimbal turret with dual infrared optical camera lenses.</li>
+      <li><strong>Cooling & Armor:</strong> Segmented top armor plating, aerodynamic stabilizer fins, and rear copper conduits.</li>
+    </ul>
+
+    <h3 class="section-title">5. How We Optimized It (Part B: Blender Pipeline)</h3>
+    <p>To run smoothly at 60 FPS on mobile phones without lagging or draining battery, we applied a 5-step optimization pipeline:</p>
+
+    <ul>
+      <li><strong>Step 1: High-Poly Baseline Authoring:</strong> Created the high-poly sculpt containing <strong>116,744 triangles</strong>, 65,760 vertices, and 10 separate sub-meshes (10 draw calls), resulting in a heavy <strong>2.95 MB</strong> file size.</li>
+      <li><strong>Step 2: Mesh Decimation (Quadric Error Metric):</strong> Applied Blender's <em>Decimate Modifier</em> in <em>Collapse</em> mode with a ratio of 0.021. This collapsed redundant coplanar vertices while preserving silhouettes, reducing triangles by <strong>97.86%</strong> down to <strong>2,504 triangles</strong>.</li>
+      <li><strong>Step 3: Draw Call Consolidation:</strong> In WebGL, each separate material causes a laggy draw call. We merged 8 structural parts into a single hull mesh, reducing draw calls from 10 down to 2 (an <strong>80.00% reduction</strong>).</li>
+      <li><strong>Step 4: Normal Texture Baking:</strong> Baked fine surface details (panel lines, bevels, conduit ribs, bolt rivets) from the high-poly model into a tangent-space normal map to keep visual sharpness without polygon overhead.</li>
+      <li><strong>Step 5: Draco Geometry Compression:</strong> Exported the final asset with <em>Draco compression</em> (`KHR_draco_mesh_compression`), compressing the geometry down to just <strong>15.8 KB (0.015 MB)</strong>!</li>
+    </ul>
+
+    <h3 class="section-title">6. Quantitative Optimization Benchmarks</h3>
+    <p>Exact quantitative measurements before and after optimization:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>High-Poly (Before)</th>
+          <th>Decimated (After)</th>
+          <th>Draco Compressed</th>
+          <th>Improvement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Triangle Count</strong></td>
+          <td>116,744 tris</td>
+          <td>2,504 tris</td>
+          <td>2,504 tris</td>
+          <td><span class="badge-green">97.86% Reduction</span></td>
+        </tr>
+        <tr>
+          <td><strong>Vertex Count</strong></td>
+          <td>65,760 vertices</td>
+          <td>2,138 vertices</td>
+          <td>2,138 vertices</td>
+          <td><span class="badge-green">96.75% Reduction</span></td>
+        </tr>
+        <tr>
+          <td><strong>Draw Calls</strong></td>
+          <td>10 draw calls</td>
+          <td>2 draw calls</td>
+          <td>2 draw calls</td>
+          <td><span class="badge-green">80.00% Reduction</span></td>
+        </tr>
+        <tr>
+          <td><strong>File Size</strong></td>
+          <td>2.95 MB (2,950 KB)</td>
+          <td>51.3 KB</td>
+          <td><strong>15.8 KB</strong></td>
+          <td><span class="badge-green">99.49% Reduction</span></td>
+        </tr>
+        <tr>
+          <td><strong>3G Load Time (750 kbps)</strong></td>
+          <td>~31.4 seconds</td>
+          <td>~0.52 seconds</td>
+          <td><strong>~0.17 seconds</strong></td>
+          <td><span class="badge-green">Instantaneous</span></td>
+        </tr>
+        <tr>
+          <td><strong>Mobile Framerate</strong></td>
+          <td>44–58 FPS (Stutter)</td>
+          <td><strong>60 FPS (Rock-solid)</strong></td>
+          <td><strong>60 FPS (Rock-solid)</strong></td>
+          <td><span class="badge-green">Flawless 60 FPS</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <span>DJSCE | Department of AIML | ARMR (DJS23ALH1501)</span>
+      <span>Page 2 of 3</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <h3 class="section-title">7. Part C — WebAR Deployment & Verification</h3>
+    <p>The application was deployed via GitHub Pages over HTTPS (mandatory for mobile WebRTC camera access). The real-time camera feed is captured, and the ARToolKit worker detects the Hiro marker coordinates to anchor the 3D drone.</p>
+
+    <h3 class="section-title">8. Live Demonstration Output</h3>
+    <p>Below is the verified output screenshot captured from the live WebAR application, showing the 3D Cyber Recon Drone anchored to the physical Hiro marker target:</p>
+
+    <!-- USER'S LIVE OUTPUT PHOTO EMBEDDED HERE -->
+    <div class="photo-container">
+      <img src="OUTPUT.png" alt="Live AR Output Screenshot" class="output-photo">
+      <div class="photo-caption">
+        Figure 1: Live WebAR output running on webcam — 3D Cyber Recon Drone anchored above the Hiro marker with status indicator (TARGET ANCHORED) and live 60 FPS telemetry.
+      </div>
+    </div>
+
+    <h3 class="section-title">9. Verification & Interactive Reactions</h3>
+    <ul>
+      <li><strong>Target Anchored (Green Status):</strong> Status pill turns neon green upon marker recognition with a lock-on audio chime.</li>
+      <li><strong>Hover Levitation:</strong> Drone hovers and bobs continuously above the marker in real time.</li>
+      <li><strong>Reaction Test:</strong> Clicking <em>"⚡ React"</em> triggers an energy shockwave ring and rotor spin burst.</li>
+      <li><strong>Model Benchmark Switcher:</strong> Evaluators can toggle between the 2,504-poly model and 116,744-poly baseline in real time.</li>
+      <li><strong>Clean View Mode:</strong> Clicking <em>"👁️ Clean"</em> hides all buttons for clean presentation recording.</li>
+    </ul>
+
+    <h3 class="section-title">10. Project Links & Deliverables</h3>
+    <ul>
+      <li><strong>Live WebXR URL:</strong> <a href="https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/" target="_blank">https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/</a></li>
+      <li><strong>GitHub Source Code:</strong> <a href="https://github.com/VedantDave81106/ARMR-WebXR-Asset-Optimization" target="_blank">https://github.com/VedantDave81106/ARMR-WebXR-Asset-Optimization</a></li>
+      <li><strong>Optimized 3D Model:</strong> <code>assets/model_optimized.glb</code> (51.3 KB) and <code>assets/model_draco.glb</code> (15.8 KB)</li>
+    </ul>
+
+    <h3 class="section-title">11. Conclusion</h3>
+    <p>This assignment successfully designed and deployed an app-less WebXR marker tracking application. By applying Quadric Error Metric mesh decimation, draw call batching, and Draco compression, the asset achieved a <strong>97.86% reduction in polygons</strong> and <strong>99.49% reduction in file payload</strong>, maintaining a sustained 60 FPS across standard browsers.</p>
+
+    <div class="page-footer">
+      <span>DJSCE | Department of AIML | ARMR (DJS23ALH1501)</span>
+      <span>Page 3 of 3</span>
+    </div>
   </div>
 
 </body>
