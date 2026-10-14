@@ -20,6 +20,10 @@
 
 📄 **Printable Marker Sheet:** [https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/marker_sheet.html](https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/marker_sheet.html)
 
+### 📸 Live Augmented Reality Demonstration
+![Live WebXR Marker Anchoring Output](OUTPUT.png)
+*Figure 1: Real-time 3D Cyber Recon Drone anchored to the Hiro marker target via web camera stream with holographic reticle and interactive HUD telemetry.*
+
 ---
 
 ## 📑 Required Deliverables Index
