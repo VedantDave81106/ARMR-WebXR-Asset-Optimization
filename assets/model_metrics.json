@@ -1,0 +1,30 @@
+{
+  "modelName": "Autonomous Cyber Reconnaissance Drone (Model CRD-07)",
+  "baselineHighPoly": {
+    "triangles": 116744,
+    "vertices": 65760,
+    "drawCalls": 10,
+    "fileSizeBytes": 3089760,
+    "fileSizeMB": 2.95
+  },
+  "optimizedDecimated": {
+    "triangles": 2504,
+    "vertices": 2138,
+    "drawCalls": 2,
+    "fileSizeBytes": 51296,
+    "fileSizeMB": 0.049
+  },
+  "dracoCompressed": {
+    "triangles": 2504,
+    "vertices": 2050,
+    "drawCalls": 2,
+    "fileSizeBytes": 15804,
+    "fileSizeMB": 0.015
+  },
+  "reductions": {
+    "triangleReductionPct": "97.86%",
+    "drawCallReductionPct": "80.00%",
+    "uncompressedSizeReductionPct": "98.34%",
+    "dracoSizeReductionPct": "99.49%"
+  }
+}

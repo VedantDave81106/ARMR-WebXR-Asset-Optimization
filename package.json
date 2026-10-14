@@ -1,0 +1,32 @@
+{
+  "name": "armr-webxr-asset-optimization",
+  "version": "1.0.0",
+  "description": "Cross-Platform WebXR Implementation & Mobile 3D Asset Optimization Pipeline | ARMR Assignment 1",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve -p 8080",
+    "serve": "npx serve -p 8080",
+    "build:models": "node scripts/generate_models.mjs",
+    "build:marker": "node scripts/generate_marker.mjs"
+  },
+  "keywords": [
+    "webxr",
+    "webgl",
+    "arjs",
+    "aframe",
+    "augmented-reality",
+    "mesh-decimation",
+    "draco-compression",
+    "djsce"
+  ],
+  "author": "Vedant Dave <vedantdave81106@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@gltf-transform/core": "^4.1.0",
+    "@gltf-transform/extensions": "^4.1.0",
+    "@gltf-transform/functions": "^4.1.0",
+    "draco3d": "^1.5.7",
+    "three": "^0.186.0"
+  }
+}

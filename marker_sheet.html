@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiro AR Marker Printable Sheet | ARMR Assignment 1</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 15mm;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1e293b;
+      background: #f8fafc;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .sheet {
+      width: 100%;
+      max-width: 700px;
+      background: #ffffff;
+      padding: 36px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .header {
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-size: 18px;
+      margin: 0 0 6px 0;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .header p {
+      font-size: 13px;
+      margin: 2px 0;
+      color: #64748b;
+    }
+    .marker-container {
+      margin: 24px auto;
+      display: inline-block;
+      border: 2px dashed #94a3b8;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 8px;
+    }
+    .marker-img {
+      width: 320px;
+      height: 320px;
+      display: block;
+    }
+    .instructions {
+      text-align: left;
+      background: #f1f5f9;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    .instructions h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #0284c7;
+    }
+    .instructions ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .footer-note {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .print-btn {
+      background: #0284c7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .sheet { border: none; box-shadow: none; padding: 0; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Marker Sheet (A4)</button>
+    <div class="header">
+      <h1>Dwarkadas J. Sanghvi College of Engineering</h1>
+      <p>Department of Artificial Intelligence and Machine Learning</p>
+      <p><strong>B.Tech Sem V | Augmented Reality and Mixed Reality (DJS23ALH1501)</strong></p>
+      <p>Assignment 1: Cross-Platform WebXR Implementation & Asset Optimization Pipeline</p>
+    </div>
+
+    <h2>Standard Hiro Tracking Target</h2>
+    <p style="font-size: 13px; color: #64748b;">Target dimensions: 100 mm × 100 mm (1:1 aspect ratio)</p>
+
+    <div class="marker-container">
+      <img src="hiro.png" alt="Hiro Marker Target" class="marker-img">
+    </div>
+
+    <div class="instructions">
+      <h3>Detection & Evaluation Guidelines:</h3>
+      <ol>
+        <li>Place this printed sheet or keep this image displayed flat on your monitor screen.</li>
+        <li>Open the WebXR application URL on your mobile browser (Safari on iOS, Chrome on Android).</li>
+        <li>Grant camera permissions when prompted.</li>
+        <li>Aim your camera directly at the marker from a distance of 25–40 cm with adequate ambient lighting.</li>
+        <li>The 3D Cyber Recon Drone model will instantly anchor above the marker with real-time hovering and interactive telemetry.</li>
+      </ol>
+    </div>
+
+    <div class="footer-note">
+      ARMR Assignment 1 | Department of AI & ML | DJSCE
+    </div>
+  </div>
+</body>
+</html>
