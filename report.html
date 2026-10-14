@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ARMR Assignment 1 - Simple 3-Page Report</title>
+  <title>ARMR Assignment 1 - Report</title>
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 15mm 12mm 15mm;
+      margin: 10mm 15mm 10mm 15mm;
     }
 
     * {
@@ -16,9 +16,9 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size: 10pt;
-      line-height: 1.45;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.4;
       color: #1e293b;
       background: #e2e8f0;
       padding: 20px;
@@ -29,7 +29,7 @@
       max-width: 800px;
       margin: 0 auto 16px auto;
       background: #0284c7;
-      padding: 12px 20px;
+      padding: 10px 20px;
       border-radius: 8px;
       display: flex;
       justify-content: space-between;
@@ -55,7 +55,7 @@
       min-height: 1060px;
       margin: 0 auto 20px auto;
       background: #fff;
-      padding: 32px 36px;
+      padding: 28px 36px 36px 36px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       position: relative;
     }
@@ -65,66 +65,50 @@
       break-after: page;
     }
 
-    /* Header */
-    .college-header {
+    /* Official College Header from Assignment */
+    .header-box {
       text-align: center;
-      border-bottom: 2px solid #0284c7;
-      padding-bottom: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
     }
 
-    .college-header h1 {
-      font-size: 15pt;
-      color: #0f172a;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-
-    .college-header h2 {
-      font-size: 11pt;
-      color: #0284c7;
-      margin: 2px 0;
-      font-weight: 700;
+    .header-img {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .meta-strip {
       display: flex;
       justify-content: space-between;
       background: #f1f5f9;
+      border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 6px 12px;
+      padding: 6px 14px;
       font-size: 9pt;
       margin-top: 8px;
       font-weight: 600;
+      color: #334155;
     }
 
     /* Section titles */
     h3.section-title {
-      font-size: 11.5pt;
+      font-size: 11pt;
       color: #0f172a;
       border-left: 4px solid #0284c7;
       padding-left: 8px;
-      margin: 14px 0 8px 0;
+      margin: 12px 0 6px 0;
       text-transform: uppercase;
+      font-weight: 800;
       letter-spacing: 0.3px;
-    }
-
-    h4.sub-title {
-      font-size: 10pt;
-      color: #0369a1;
-      margin: 8px 0 4px 0;
-      font-weight: 700;
-    }
-
-    p {
-      margin-bottom: 8px;
-      color: #334155;
     }
 
     /* Bullet point lists */
     ul {
-      margin: 4px 0 10px 20px;
+      margin: 4px 0 8px 18px;
     }
 
     li {
@@ -136,21 +120,11 @@
       color: #0f172a;
     }
 
-    /* Highlight box */
-    .highlight-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin: 10px 0;
-      font-size: 9pt;
-    }
-
     /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 10px 0;
+      margin: 8px 0;
       font-size: 8.5pt;
     }
 
@@ -176,7 +150,7 @@
       background: #dcfce7;
       color: #166534;
       font-weight: 700;
-      padding: 2px 6px;
+      padding: 1px 6px;
       border-radius: 4px;
       display: inline-block;
     }
@@ -184,23 +158,23 @@
     /* Output Photo Box */
     .photo-container {
       text-align: center;
-      margin: 12px 0;
+      margin: 10px 0;
       border: 2px dashed #0284c7;
       border-radius: 10px;
-      padding: 10px;
+      padding: 8px;
       background: #f8fafc;
     }
 
     .output-photo {
       max-width: 100%;
-      height: 280px;
+      height: 270px;
       object-fit: contain;
       border-radius: 6px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.12);
     }
 
     .photo-caption {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #64748b;
       margin-top: 6px;
       font-weight: 600;
@@ -209,7 +183,7 @@
     /* Footer on each page */
     .page-footer {
       position: absolute;
-      bottom: 16px;
+      bottom: 12px;
       left: 36px;
       right: 36px;
       display: flex;
@@ -217,7 +191,7 @@
       font-size: 8pt;
       color: #94a3b8;
       border-top: 1px solid #e2e8f0;
-      padding-top: 6px;
+      padding-top: 4px;
     }
 
     @media print {
@@ -242,84 +216,79 @@
 
   <!-- Top bar for 1-click printing -->
   <div class="print-bar">
-    <div><strong>ARMR Assignment 1: Simple 3-Page Report</strong></div>
+    <div><strong>ARMR Assignment 1: Report</strong></div>
     <button class="print-btn" onclick="window.print()">🖨️ Save as PDF (Ctrl + P)</button>
   </div>
 
   <!-- ================= PAGE 1 ================= -->
   <div class="page page-break">
-    <div class="college-header">
-      <h1>Dwarkadas J. Sanghvi College of Engineering</h1>
-      <h2>Department of Artificial Intelligence and Machine Learning</h2>
+    <!-- Exact College Header from Assignment -->
+    <div class="header-box">
+      <img src="header_banner.png" alt="DJSCE Assignment 1 Header" class="header-img">
       <div class="meta-strip">
-        <span>Course: ARMR (DJS23ALH1501) | Sem V</span>
-        <span>Assignment 1</span>
-        <span>Student: Vedant Dave</span>
+        <span><strong>Student:</strong> Vedant Dave</span>
+        <span><strong>Course:</strong> ARMR (DJS23ALH1501)</span>
+        <span><strong>Semester:</strong> V</span>
+        <span><strong>Target:</strong> CO1, CO2</span>
       </div>
     </div>
 
-    <h3 class="section-title">1. Assignment Overview & Objectives</h3>
-    <p>This assignment implements an app-less, cross-platform mobile WebXR Augmented Reality experience and evaluates a 3D asset decimation and compression pipeline.</p>
+    <h3 class="section-title">1. Objective</h3>
     <ul>
-      <li><strong>Objective:</strong> Deliver marker-based AR directly in mobile web browsers without installing native apps (Unity / APKs).</li>
-      <li><strong>Target Course Outcomes:</strong> CO1 (Literature Survey & Architectural Trade-off Analysis) and CO2 (3D Asset Decimation & WebXR Deployment).</li>
-      <li><strong>Core Technology:</strong> AR.js, A-Frame, Three.js, WebGL, glTF 2.0, and Draco Compression.</li>
+      <li>Design, optimize, and deploy a marker-based, app-less WebXR experience to understand cross-platform mobile AR delivery and real-time 3D asset performance constraints.</li>
     </ul>
 
-    <h3 class="section-title">2. What We Made (System Overview)</h3>
-    <div class="highlight-card">
-      <strong>Summary:</strong> We built an interactive WebAR web application that runs in standard mobile browsers (Safari on iOS, Chrome on Android, and PC webcams). When the user points their camera at a standard <strong>Hiro marker</strong>, a 3D <strong>Cyber Reconnaissance Drone</strong> automatically pops up floating and rotating above the marker with sound effects, telemetry HUD, and interactive energy reactions.
-    </div>
-
+    <h3 class="section-title">2. What We Made</h3>
     <ul>
-      <li><strong>App-less Delivery:</strong> Zero installation required. Users simply open a public HTTPS link or scan a QR code.</li>
-      <li><strong>Real-Time Marker Tracking:</strong> Uses WebAssembly ARToolKit to track the Hiro marker pattern via the device webcam at 60 FPS.</li>
-      <li><strong>Dynamic Hover & Audio Reaction:</strong> When the marker is detected, the drone plays a lock-on sonar sound and begins a floating levitation animation.</li>
-      <li><strong>Interactive Energy Shockwave:</strong> Clicking <em>"⚡ React"</em> triggers an expanding energy shockwave shield and bursts the rotor speed by 8&times;.</li>
-      <li><strong>Wireframe & Switcher Controls:</strong> Evaluators can toggle wireframe mode or switch between Low-Poly and High-Poly models live in AR.</li>
+      <li><strong>App-less WebXR Delivery:</strong> Pure browser-based AR running via AR.js, A-Frame, and WebGL with zero application installation.</li>
+      <li><strong>Hiro Marker Tracking:</strong> Tracks the standard black-and-white Hiro marker in real time using the device webcam.</li>
+      <li><strong>Interactive 3D Drone:</strong> Anchors a 3D Cyber Recon Drone directly on top of the marker with hovering rotation.</li>
+      <li><strong>Procedural Audio:</strong> Plays a lock-on sonar tone generated via the browser Web Audio API upon marker detection.</li>
+      <li><strong>Interactive Energy Reaction:</strong> Clicking <em>⚡ React</em> triggers an expanding shockwave shield and an 8&times; rotor speed burst.</li>
+      <li><strong>Real-time Telemetry:</strong> In-app HUD shows real-time 60 FPS framerate, polygon count, and draw calls.</li>
     </ul>
 
-    <h3 class="section-title">3. Part A — Native AR SDKs vs. Browser-Based WebXR</h3>
-    <p>We conducted a technical trade-off survey comparing native mobile AR (Apple ARKit / Google ARCore) against browser-based AR (AR.js / WebXR):</p>
+    <h3 class="section-title">3. Part A — Architectural Trade-off Analysis (CO1)</h3>
+    <p style="margin-bottom: 6px; color: #475569;">Comparison between Native Mobile AR SDKs and Browser-based WebAR frameworks:</p>
 
     <table>
       <thead>
         <tr>
-          <th>Feature</th>
-          <th>Native SDKs (ARKit / ARCore)</th>
+          <th>Evaluation Factor</th>
+          <th>Native AR (ARKit / ARCore)</th>
           <th>Browser WebAR (AR.js / WebXR)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Installation Gate</strong></td>
-          <td>Requires App Store / Play Store download (&gt;100 MB)</td>
-          <td><span class="badge-green">Zero Install (Instant HTTPS Link)</span></td>
+          <td><strong>User Onboarding</strong></td>
+          <td>High friction (App Store download, &gt;100 MB)</td>
+          <td><span class="badge-green">Zero Friction (Instant URL / QR Scan)</span></td>
         </tr>
         <tr>
           <td><strong>Cross-Platform Reach</strong></td>
-          <td>Platform-locked (ARKit = iOS, ARCore = Android)</td>
-          <td><span class="badge-green">Universal (&gt;95% of all mobile & desktop browsers)</span></td>
+          <td>Platform-locked (ARKit=iOS, ARCore=Android)</td>
+          <td><span class="badge-green">Universal (&gt;95% of mobile & desktop browsers)</span></td>
         </tr>
         <tr>
-          <td><strong>Tracking Mechanism</strong></td>
-          <td>Hardware 6-DoF VIO, LiDAR, Depth sensors</td>
+          <td><strong>Tracking Method</strong></td>
+          <td>Hardware VIO + LiDAR / Depth sensors</td>
           <td>Computer Vision Marker Tracking (Wasm ARToolKit)</td>
         </tr>
         <tr>
-          <td><strong>Rendering Engine</strong></td>
-          <td>Native Metal / Vulkan (Very low draw call cost)</td>
-          <td>WebGL / Three.js (High JavaScript draw call overhead)</td>
+          <td><strong>Graphics API</strong></td>
+          <td>Native Metal / Vulkan (Fast multi-threaded)</td>
+          <td>WebGL / Three.js (Single-threaded JS dispatch)</td>
         </tr>
         <tr>
-          <td><strong>Motion-to-Photon Latency</strong></td>
+          <td><strong>Draw Call Limit</strong></td>
+          <td>Thousands of draw calls per frame</td>
+          <td><strong>Must batch into 1–3 draw calls for 60 FPS</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Latency</strong></td>
           <td>16–30 ms</td>
           <td>30–50 ms</td>
-        </tr>
-        <tr>
-          <td><strong>Key Takeaway</strong></td>
-          <td>Superior for multi-room LiDAR meshing</td>
-          <td><strong>Ideal for instant, friction-free web demonstrations</strong></td>
         </tr>
       </tbody>
     </table>
@@ -332,33 +301,28 @@
 
   <!-- ================= PAGE 2 ================= -->
   <div class="page page-break">
-    <h3 class="section-title">4. What is Our 3D Model?</h3>
-    <p>We designed a multi-component <strong>Cyber Reconnaissance Drone (Model CRD-07)</strong> specifically tailored for augmented reality visualization:</p>
-    
+    <h3 class="section-title">4. Our 3D Model: Cyber Recon Drone (CRD-07)</h3>
+    <p style="margin-bottom: 6px; color: #475569;">Our 3D model is designed with distinct functional mechanical sub-assemblies:</p>
     <ul>
-      <li><strong>Central Fuselage & Hull:</strong> Aerodynamic core housing flight avionics and navigational sensors.</li>
-      <li><strong>Glowing Reactor Core:</strong> Emissive cyan spherical reactor located at the center of the drone.</li>
-      <li><strong>Magnetic Containment Ring:</strong> Outer toroidal stabilization ring wrapped with electromagnetic coils.</li>
-      <li><strong>Quad Propulsion Pylons:</strong> 4 diagonal structural arms extending outward to the motor housings.</li>
-      <li><strong>Turbine Engine Nacelles:</strong> 4 aerodynamic duct cowlings with rotating turbine blades.</li>
-      <li><strong>Optical Sensor Turret:</strong> Front-mounted gimbal turret with dual infrared optical camera lenses.</li>
-      <li><strong>Cooling & Armor:</strong> Segmented top armor plating, aerodynamic stabilizer fins, and rear copper conduits.</li>
+      <li><strong>Chassis & Hull:</strong> Aerodynamic fuselage housing central avionics.</li>
+      <li><strong>Reactor Core:</strong> Central spherical reactor with an emissive cyan glow.</li>
+      <li><strong>Containment Ring:</strong> Torus ring surrounding the reactor with 12 electromagnetic coils.</li>
+      <li><strong>Propulsion Arms:</strong> 4 diagonal carbon fiber pylons.</li>
+      <li><strong>Turbine Nacelles:</strong> 4 engine ducts with internal rotating turbine blades.</li>
+      <li><strong>Sensor Turret:</strong> Front gimbal pod equipped with dual optical camera lenses.</li>
+      <li><strong>Fins & Cabling:</strong> Top aerodynamic stabilizer fins and rear copper energy conduits.</li>
     </ul>
 
     <h3 class="section-title">5. How We Optimized It (Part B: Blender Pipeline)</h3>
-    <p>To run smoothly at 60 FPS on mobile phones without lagging or draining battery, we applied a 5-step optimization pipeline:</p>
-
     <ul>
-      <li><strong>Step 1: High-Poly Baseline Authoring:</strong> Created the high-poly sculpt containing <strong>116,744 triangles</strong>, 65,760 vertices, and 10 separate sub-meshes (10 draw calls), resulting in a heavy <strong>2.95 MB</strong> file size.</li>
-      <li><strong>Step 2: Mesh Decimation (Quadric Error Metric):</strong> Applied Blender's <em>Decimate Modifier</em> in <em>Collapse</em> mode with a ratio of 0.021. This collapsed redundant coplanar vertices while preserving silhouettes, reducing triangles by <strong>97.86%</strong> down to <strong>2,504 triangles</strong>.</li>
-      <li><strong>Step 3: Draw Call Consolidation:</strong> In WebGL, each separate material causes a laggy draw call. We merged 8 structural parts into a single hull mesh, reducing draw calls from 10 down to 2 (an <strong>80.00% reduction</strong>).</li>
-      <li><strong>Step 4: Normal Texture Baking:</strong> Baked fine surface details (panel lines, bevels, conduit ribs, bolt rivets) from the high-poly model into a tangent-space normal map to keep visual sharpness without polygon overhead.</li>
-      <li><strong>Step 5: Draco Geometry Compression:</strong> Exported the final asset with <em>Draco compression</em> (`KHR_draco_mesh_compression`), compressing the geometry down to just <strong>15.8 KB (0.015 MB)</strong>!</li>
+      <li><strong>Step 1: High-Poly Baseline:</strong> Authored initial model with high subdivision: <strong>116,744 triangles</strong>, 10 sub-meshes (10 draw calls), and <strong>2.95 MB</strong> file size.</li>
+      <li><strong>Step 2: Mesh Decimation:</strong> Applied Blender's <em>Decimate Modifier</em> (Collapse mode, ratio 0.021) using Quadric Error Metrics (QEM), reducing triangles by <strong>97.86%</strong> down to <strong>2,504 triangles</strong> while preserving silhouettes.</li>
+      <li><strong>Step 3: Draw Call Batching:</strong> Consolidated 8 mechanical parts into a single vertex buffer, reducing draw calls from 10 to 2 (an <strong>80.00% reduction</strong>).</li>
+      <li><strong>Step 4: Normal Texture Baking:</strong> Baked fine panel bevels, seams, and rivet details from high-poly onto low-poly UVs via a tangent-space normal map.</li>
+      <li><strong>Step 5: Draco Geometry Compression:</strong> Exported using `KHR_draco_mesh_compression`, reducing the payload to just <strong>15.8 KB</strong>!</li>
     </ul>
 
     <h3 class="section-title">6. Quantitative Optimization Benchmarks</h3>
-    <p>Exact quantitative measurements before and after optimization:</p>
-
     <table>
       <thead>
         <tr>
@@ -399,7 +363,7 @@
           <td><span class="badge-green">99.49% Reduction</span></td>
         </tr>
         <tr>
-          <td><strong>3G Load Time (750 kbps)</strong></td>
+          <td><strong>3G Load Time</strong></td>
           <td>~31.4 seconds</td>
           <td>~0.52 seconds</td>
           <td><strong>~0.17 seconds</strong></td>
@@ -410,7 +374,7 @@
           <td>44–58 FPS (Stutter)</td>
           <td><strong>60 FPS (Rock-solid)</strong></td>
           <td><strong>60 FPS (Rock-solid)</strong></td>
-          <td><span class="badge-green">Flawless 60 FPS</span></td>
+          <td><span class="badge-green">Smooth 60 FPS</span></td>
         </tr>
       </tbody>
     </table>
@@ -423,12 +387,13 @@
 
   <!-- ================= PAGE 3 ================= -->
   <div class="page">
-    <h3 class="section-title">7. Part C — WebAR Deployment & Verification</h3>
-    <p>The application was deployed via GitHub Pages over HTTPS (mandatory for mobile WebRTC camera access). The real-time camera feed is captured, and the ARToolKit worker detects the Hiro marker coordinates to anchor the 3D drone.</p>
+    <h3 class="section-title">7. Part C — WebAR Deployment</h3>
+    <ul>
+      <li>Hosted publicly on GitHub Pages via HTTPS (required for WebRTC camera stream access).</li>
+      <li>ARToolKit tracks the Hiro marker and passes the 6-DoF transformation matrix to A-Frame to render the anchored drone.</li>
+    </ul>
 
     <h3 class="section-title">8. Live Demonstration Output</h3>
-    <p>Below is the verified output screenshot captured from the live WebAR application, showing the 3D Cyber Recon Drone anchored to the physical Hiro marker target:</p>
-
     <!-- USER'S LIVE OUTPUT PHOTO EMBEDDED HERE -->
     <div class="photo-container">
       <img src="OUTPUT.png" alt="Live AR Output Screenshot" class="output-photo">
@@ -439,22 +404,25 @@
 
     <h3 class="section-title">9. Verification & Interactive Reactions</h3>
     <ul>
-      <li><strong>Target Anchored (Green Status):</strong> Status pill turns neon green upon marker recognition with a lock-on audio chime.</li>
-      <li><strong>Hover Levitation:</strong> Drone hovers and bobs continuously above the marker in real time.</li>
-      <li><strong>Reaction Test:</strong> Clicking <em>"⚡ React"</em> triggers an energy shockwave ring and rotor spin burst.</li>
-      <li><strong>Model Benchmark Switcher:</strong> Evaluators can toggle between the 2,504-poly model and 116,744-poly baseline in real time.</li>
-      <li><strong>Clean View Mode:</strong> Clicking <em>"👁️ Clean"</em> hides all buttons for clean presentation recording.</li>
+      <li><strong>Target Anchored (Green Status):</strong> Status pill switches to green with a lock-on audio chime upon marker capture.</li>
+      <li><strong>Hovering Levitation:</strong> Drone hovers and bobs continuously above the marker in real time.</li>
+      <li><strong>Shockwave Reaction:</strong> Clicking <em>⚡ React</em> triggers an energy shockwave ring and rotor spin burst.</li>
+      <li><strong>Model Benchmark Switcher:</strong> Allows evaluators to toggle live between the 2,504-poly model and 116,744-poly model.</li>
+      <li><strong>Clean View Mode:</strong> Clicking <em>👁️ Clean</em> hides all buttons for clean presentation recording.</li>
     </ul>
 
-    <h3 class="section-title">10. Project Links & Deliverables</h3>
+    <h3 class="section-title">10. Submission Links</h3>
     <ul>
-      <li><strong>Live WebXR URL:</strong> <a href="https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/" target="_blank">https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/</a></li>
+      <li><strong>Live Public WebXR URL:</strong> <a href="https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/" target="_blank">https://vedantdave81106.github.io/ARMR-WebXR-Asset-Optimization/</a></li>
       <li><strong>GitHub Source Code:</strong> <a href="https://github.com/VedantDave81106/ARMR-WebXR-Asset-Optimization" target="_blank">https://github.com/VedantDave81106/ARMR-WebXR-Asset-Optimization</a></li>
       <li><strong>Optimized 3D Model:</strong> <code>assets/model_optimized.glb</code> (51.3 KB) and <code>assets/model_draco.glb</code> (15.8 KB)</li>
     </ul>
 
     <h3 class="section-title">11. Conclusion</h3>
-    <p>This assignment successfully designed and deployed an app-less WebXR marker tracking application. By applying Quadric Error Metric mesh decimation, draw call batching, and Draco compression, the asset achieved a <strong>97.86% reduction in polygons</strong> and <strong>99.49% reduction in file payload</strong>, maintaining a sustained 60 FPS across standard browsers.</p>
+    <ul>
+      <li>Delivered an app-less WebXR marker tracking application running at a sustained 60 FPS.</li>
+      <li>Achieved a <strong>97.86% reduction in polygons</strong> and <strong>99.49% reduction in file payload</strong> through QEM decimation and Draco compression.</li>
+    </ul>
 
     <div class="page-footer">
       <span>DJSCE | Department of AIML | ARMR (DJS23ALH1501)</span>
