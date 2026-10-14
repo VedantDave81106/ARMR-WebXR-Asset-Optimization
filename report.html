@@ -65,33 +65,38 @@
       break-after: page;
     }
 
-    /* Official College Header from Assignment */
+    /* Clean Student Header */
     .header-box {
       text-align: center;
-      margin-bottom: 14px;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 8px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 12px;
     }
 
-    .header-img {
-      width: 100%;
-      max-width: 680px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+    .main-title {
+      font-size: 15pt;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
     }
 
-    .meta-strip {
-      display: flex;
-      justify-content: space-between;
+    .student-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
       background: #f1f5f9;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 9pt;
-      margin-top: 8px;
-      font-weight: 600;
+      padding: 6px 10px;
+      font-size: 8.5pt;
       color: #334155;
+      text-align: center;
+    }
+
+    .info-item strong {
+      color: #0f172a;
     }
 
     /* Section titles */
@@ -222,14 +227,14 @@
 
   <!-- ================= PAGE 1 ================= -->
   <div class="page page-break">
-    <!-- Exact College Header from Assignment -->
+    <!-- Clean Student Assignment Header -->
     <div class="header-box">
-      <img src="header_banner.png" alt="DJSCE Assignment 1 Header" class="header-img">
-      <div class="meta-strip">
-        <span><strong>Student:</strong> Vedant Dave</span>
-        <span><strong>Course:</strong> ARMR (DJS23ALH1501)</span>
-        <span><strong>Semester:</strong> V</span>
-        <span><strong>Target:</strong> CO1, CO2</span>
+      <h1 class="main-title">ARMR SELF LEARNING ASSIGNMENT 1</h1>
+      <div class="student-info-grid">
+        <div class="info-item"><strong>Name:</strong> Vedant Parimal Dave</div>
+        <div class="info-item"><strong>SAP ID:</strong> 60017240057</div>
+        <div class="info-item"><strong>Roll No.:</strong> A011</div>
+        <div class="info-item"><strong>Batch:</strong> A1-1</div>
       </div>
     </div>
 

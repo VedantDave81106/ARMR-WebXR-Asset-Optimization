@@ -1,11 +1,9 @@
-# Shri Vile Parle Kelavani Mandal's
-## DWARKADAS J. SANGHVI COLLEGE OF ENGINEERING
-### (Empowered Autonomous College Affiliated to the University of Mumbai)
-#### Department of Artificial Intelligence and Machine Learning
-**B.Tech. Sem: V Subject: Augmented Reality and Mixed Reality (DJS23ALH1501)**  
-### Assignment 1
+# ARMR SELF LEARNING ASSIGNMENT 1
 
-**Student:** Vedant Dave (`VedantDave81106`) | **Semester:** V | **Target:** CO1, CO2  
+**Name:** Vedant Parimal Dave  
+**SAP ID:** 60017240057  
+**Roll No.:** A011  
+**Batch:** A1-1  
 
 ---
 
