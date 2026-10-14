@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Cross-Platform WebXR Implementation | ARMR Assignment 1</title>
+  <title>WebXR Marker AR</title>
   
   <!-- A-Frame and AR.js libraries -->
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
   
-  <!-- Custom UI Stylesheet -->
+  <!-- Custom Clean UI Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,11 +36,11 @@
       smoothTolerance="0.01" 
       smoothThreshold="5">
       
-      <!-- Anchored 3D Cyber Recon Drone Model with Levitation Component -->
+      <!-- Anchored 3D Cyber Recon Drone Model -->
       <a-entity 
         id="drone-model" 
         gltf-model="assets/model_optimized.glb" 
-        scale="0.45 0.45 0.45" 
+        scale="0.5 0.5 0.5" 
         position="0 0.35 0" 
         drone-hover>
       </a-entity>
@@ -72,93 +72,59 @@
     <a-entity camera></a-entity>
   </a-scene>
 
-  <!-- Futuristic Glassmorphism HUD Overlay Layer -->
+  <!-- Clean Futuristic Minimalist HUD Overlay Layer -->
   <div id="ar-hud">
     
-    <!-- Top Header & Status -->
+    <!-- Top Header: Centered Status Pill & Compact Telemetry Badge -->
     <header class="hud-header">
-      <div class="title-card interactive">
-        <h1>WebXR AR Experience</h1>
-        <div class="sub">DJSCE | AIML Dept | Sem V (DJS23ALH1501)</div>
-      </div>
-
       <div id="status-pill" class="status-pill searching interactive">
         <div class="status-dot"></div>
-        <span id="status-text">SCANNING FOR HIRO MARKER...</span>
+        <span id="status-text">SCANNING FOR HIRO MARKER</span>
+      </div>
+
+      <div class="telemetry-badge interactive" id="telemetry-badge">
+        <span class="badge-fps" id="val-fps">60 FPS</span>
+        <span class="badge-sep">|</span>
+        <span class="badge-tris" id="val-tris">2,504 tris</span>
       </div>
     </header>
 
-    <!-- Live Performance Telemetry Widget -->
-    <aside class="telemetry-card interactive">
-      <div class="telemetry-header">Live Telemetry</div>
-      <div class="telemetry-row">
-        <span class="label">Framerate:</span>
-        <span id="val-fps" class="val green">60 FPS</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="label">Active Model:</span>
-        <span id="val-model" class="val cyan">Optimized Decimated</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="label">Triangles:</span>
-        <span id="val-tris" class="val">2,504</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="label">Draw Calls:</span>
-        <span id="val-drawcalls" class="val">2</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="label">Asset Size:</span>
-        <span id="val-size" class="val">51.3 KB</span>
-      </div>
-    </aside>
-
-    <!-- Guidance Hint when Searching for Marker -->
-    <div id="scan-guidance" class="scan-guidance interactive">
-      <div class="scan-radar"></div>
-      <p>Aim your camera at the <strong>Hiro Marker</strong></p>
-      <span class="hint">Keep marker flat under good lighting (~30 cm away). Click "Show Marker" to view on screen.</span>
-    </div>
-
     <!-- Bottom Controls Toolbar -->
     <footer class="hud-footer">
-      <!-- Main Trigger Action Button -->
-      <button id="btn-react" class="btn-primary-action interactive" type="button">
-        <span>⚡ Trigger Drone Reaction</span>
-      </button>
-
-      <!-- Secondary Controls Row -->
       <div class="button-row">
-        <button id="btn-switch-model" class="btn-hud-secondary interactive" type="button">
-          🔄 Model: Low-Poly
+        <button id="btn-react" class="btn-clean-action interactive" type="button">
+          ⚡ React
         </button>
-        <button id="btn-wireframe" class="btn-hud-secondary interactive" type="button">
-          🔲 Wireframe: OFF
+        <button id="btn-switch-model" class="btn-clean interactive" type="button">
+          🔄 Low-Poly
         </button>
-        <button id="btn-flip-camera" class="btn-hud-secondary interactive" type="button">
-          🪞 Mirror: OFF
+        <button id="btn-wireframe" class="btn-clean interactive" type="button">
+          🔲 Wireframe
         </button>
-        <button id="btn-show-marker" class="btn-hud-secondary interactive" type="button">
-          🎯 Show Marker
+        <button id="btn-flip-camera" class="btn-clean interactive" type="button">
+          🪞 Mirror
         </button>
-        <a href="marker_sheet.html" target="_blank" class="btn-hud-secondary interactive" style="text-decoration: none;">
-          📄 Print Marker
-        </a>
+        <button id="btn-show-marker" class="btn-clean interactive" type="button">
+          🎯 Marker
+        </button>
+        <button id="btn-clean-view" class="btn-clean interactive" type="button" title="Hide buttons for clean screenshot">
+          👁️ Clean
+        </button>
       </div>
     </footer>
 
   </div>
 
-  <!-- Camera Permission Prompt Button (Shows if camera was blocked or needs user tap) -->
+  <!-- Camera Permission Prompt Button (Only shown if camera blocked) -->
   <button id="btn-start-camera" class="btn-camera-prompt interactive" type="button">
-    📷 Click to Enable Webcam Access
+    📷 Click to Enable Camera
   </button>
 
-  <!-- On-Screen Marker Modal (Allows testing on phone by aiming at laptop screen) -->
+  <!-- On-Screen Marker Modal -->
   <div id="marker-modal" class="modal-overlay">
     <div class="modal-dialog">
       <h2>Hiro Tracking Target</h2>
-      <p>Point your mobile phone camera at this marker on your screen, or print it out on paper.</p>
+      <p>Hold this marker in front of your camera, or view on another device.</p>
       <div class="marker-frame">
         <img src="hiro.png" alt="Hiro Marker Target">
       </div>

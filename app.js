@@ -264,7 +264,7 @@ function switchModel() {
 
   // Update Telemetry Display
   if (valModel) valModel.textContent = cfg.name;
-  if (valTris) valTris.textContent = cfg.triangles.toLocaleString();
+  if (valTris) valTris.textContent = cfg.triangles.toLocaleString() + " tris";
   if (valDrawCalls) valDrawCalls.textContent = cfg.drawCalls;
   if (valSize) valSize.textContent = cfg.fileSize;
 
@@ -275,7 +275,7 @@ function switchModel() {
   }
 
   if (btnSwitchModel) {
-    btnSwitchModel.textContent = `Model: ${currentModelKey === "optimized" ? "Low-Poly" : "High-Poly"}`;
+    btnSwitchModel.textContent = currentModelKey === "optimized" ? "🔄 Low-Poly" : "🔄 High-Poly";
   }
 
   console.log(`Switched 3D model to: ${cfg.name} (${cfg.triangles} tris)`);
@@ -288,7 +288,7 @@ function toggleWireframe() {
 
   if (btnWireframe) {
     btnWireframe.classList.toggle("active", isWireframeActive);
-    btnWireframe.textContent = isWireframeActive ? "Wireframe: ON" : "Wireframe: OFF";
+    btnWireframe.textContent = isWireframeActive ? "🔲 Wire: ON" : "🔲 Wireframe";
   }
 
   applyWireframeState();
@@ -347,8 +347,22 @@ if (markerModal) {
   });
 }
 
-// Tap screen to trigger reaction
+// Clean View Mode (hides all buttons for unobstructed recording/screenshots)
+const btnCleanView = document.getElementById("btn-clean-view");
+const arHud = document.getElementById("ar-hud");
+
+if (btnCleanView && arHud) {
+  btnCleanView.addEventListener("click", () => {
+    arHud.classList.add("clean-hidden");
+  });
+}
+
+// Tap screen to trigger reaction or restore hidden HUD
 window.addEventListener("click", (e) => {
+  if (arHud && arHud.classList.contains("clean-hidden")) {
+    arHud.classList.remove("clean-hidden");
+    return;
+  }
   if (e.target.closest(".interactive") || e.target.closest("button") || e.target.closest(".modal-dialog")) {
     return;
   }
