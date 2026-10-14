@@ -135,6 +135,9 @@
         <button id="btn-wireframe" class="btn-hud-secondary interactive" type="button">
           🔲 Wireframe: OFF
         </button>
+        <button id="btn-flip-camera" class="btn-hud-secondary interactive" type="button">
+          🪞 Mirror: OFF
+        </button>
         <button id="btn-show-marker" class="btn-hud-secondary interactive" type="button">
           🎯 Show Marker
         </button>
@@ -145,6 +148,11 @@
     </footer>
 
   </div>
+
+  <!-- Camera Permission Prompt Button (Shows if camera was blocked or needs user tap) -->
+  <button id="btn-start-camera" class="btn-camera-prompt interactive" type="button">
+    📷 Click to Enable Webcam Access
+  </button>
 
   <!-- On-Screen Marker Modal (Allows testing on phone by aiming at laptop screen) -->
   <div id="marker-modal" class="modal-overlay">

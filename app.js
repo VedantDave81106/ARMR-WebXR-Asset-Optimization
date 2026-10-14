@@ -356,3 +356,89 @@ window.addEventListener("click", (e) => {
     triggerDroneReaction();
   }
 });
+
+// Flip Mirror Feature (Ideal for desktop/laptop webcams)
+const btnFlipCamera = document.getElementById("btn-flip-camera");
+let isCameraMirrored = false;
+
+function toggleCameraMirror() {
+  playSwitchSound();
+  isCameraMirrored = !isCameraMirrored;
+  const video = document.querySelector("video") || document.getElementById("arjs-video");
+  if (video) {
+    video.style.transform = isCameraMirrored ? "scaleX(-1)" : "none";
+  }
+  if (btnFlipCamera) {
+    btnFlipCamera.classList.toggle("active", isCameraMirrored);
+    btnFlipCamera.textContent = isCameraMirrored ? "🪞 Mirror: ON" : "🪞 Mirror: OFF";
+  }
+  console.log("Webcam mirror toggled:", isCameraMirrored);
+}
+
+if (btnFlipCamera) {
+  btnFlipCamera.addEventListener("click", toggleCameraMirror);
+}
+
+// Camera Permission & Stream Watchdog
+const btnStartCamera = document.getElementById("btn-start-camera");
+
+function checkAndEnforceVideoFeed() {
+  const video = document.querySelector("video") || document.getElementById("arjs-video");
+  if (video) {
+    video.style.setProperty("position", "fixed", "important");
+    video.style.setProperty("top", "0px", "important");
+    video.style.setProperty("left", "0px", "important");
+    video.style.setProperty("width", "100vw", "important");
+    video.style.setProperty("height", "100vh", "important");
+    video.style.setProperty("object-fit", "cover", "important");
+    video.style.setProperty("z-index", "0", "important");
+    video.style.setProperty("display", "block", "important");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.muted = true;
+
+    if (isCameraMirrored) {
+      video.style.transform = "scaleX(-1)";
+    }
+
+    if (video.paused) {
+      video.play().catch(() => {
+        if (btnStartCamera) btnStartCamera.style.display = "block";
+      });
+    } else if (btnStartCamera) {
+      btnStartCamera.style.display = "none";
+    }
+  }
+}
+
+// Watch video element periodically
+setInterval(checkAndEnforceVideoFeed, 500);
+
+// If video stream is not active after 3 seconds, show permission helper button
+setTimeout(() => {
+  const video = document.querySelector("video") || document.getElementById("arjs-video");
+  if (!video || video.paused || video.readyState < 2) {
+    if (btnStartCamera) btnStartCamera.style.display = "block";
+  }
+}, 2500);
+
+// Direct camera request when user clicks prompt
+if (btnStartCamera) {
+  btnStartCamera.addEventListener("click", async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: "environment" } },
+        audio: false
+      });
+      const video = document.querySelector("video") || document.getElementById("arjs-video");
+      if (video) {
+        video.srcObject = stream;
+        await video.play();
+      }
+      btnStartCamera.style.display = "none";
+    } catch (err) {
+      alert("Camera access was blocked by your browser.\n\nPlease click the lock / tune icon on the left of your URL bar, select 'Allow' for Camera, and refresh the page.");
+    }
+  });
+}
+
